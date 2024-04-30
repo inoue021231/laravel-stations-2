@@ -11,6 +11,15 @@
     @foreach ($movies as $movie)
         <li>タイトル：{{$movie->title}}</li>
         <img src="{{$movie->image_url}}" alt="{{$movie->title}}">
+        <?php
+            if($movie->is_showing) {
+                print('上映中');
+            } else {
+                print('上映予定');
+            }
+        ?>
+        <p>{{$movie->published_year}}</p>
+        <p>{{$movie->description}}</p>
     @endforeach
     </ul>
 </body>
